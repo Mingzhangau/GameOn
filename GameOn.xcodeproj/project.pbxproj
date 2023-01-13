@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50D0AD829710A31003035A4 /* RoundCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D0AD729710A31003035A4 /* RoundCellView.swift */; };
+		F522EB2C296E671A00C3AD6D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB2B296E671A00C3AD6D /* GameViewModel.swift */; };
+		F522EB2E296E67C500C3AD6D /* GamesAndResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */; };
+		F522EB31296E788F00C3AD6D /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB30296E788F00C3AD6D /* PlayerListView.swift */; };
+		F522EB33296E7E1B00C3AD6D /* TeamListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB32296E7E1B00C3AD6D /* TeamListView.swift */; };
 		F5308973296D2F94002D29C5 /* GameOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5308972296D2F94002D29C5 /* GameOnApp.swift */; };
 		F5308975296D2F94002D29C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5308974296D2F94002D29C5 /* ContentView.swift */; };
 		F5308977296D2F97002D29C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5308976296D2F97002D29C5 /* Assets.xcassets */; };
@@ -14,6 +19,10 @@
 		F5308984296D2F97002D29C5 /* GameOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5308983296D2F97002D29C5 /* GameOnTests.swift */; };
 		F530898E296D2F97002D29C5 /* GameOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530898D296D2F97002D29C5 /* GameOnUITests.swift */; };
 		F5308990296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530898F296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift */; };
+		F568335B2970D31B0017725A /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568335A2970D31B0017725A /* GameDetailsView.swift */; };
+		F5C2D894296F8264009E9D10 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D893296F8264009E9D10 /* Utilities.swift */; };
+		F5D845FB296E324600E7E47A /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D845FA296E324600E7E47A /* Players.swift */; };
+		F5D845FD296E335600E7E47A /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D845FC296E335600E7E47A /* Teams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50D0AD729710A31003035A4 /* RoundCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCellView.swift; sourceTree = "<group>"; };
+		F522EB2B296E671A00C3AD6D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAndResults.swift; sourceTree = "<group>"; };
+		F522EB30296E788F00C3AD6D /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		F522EB32296E7E1B00C3AD6D /* TeamListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListView.swift; sourceTree = "<group>"; };
 		F530896F296D2F94002D29C5 /* GameOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5308972296D2F94002D29C5 /* GameOnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnApp.swift; sourceTree = "<group>"; };
 		F5308974296D2F94002D29C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +58,10 @@
 		F5308989296D2F97002D29C5 /* GameOnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F530898D296D2F97002D29C5 /* GameOnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnUITests.swift; sourceTree = "<group>"; };
 		F530898F296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F568335A2970D31B0017725A /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
+		F5C2D893296F8264009E9D10 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F5D845FA296E324600E7E47A /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		F5D845FC296E335600E7E47A /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F522EB2F296E785700C3AD6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5308974296D2F94002D29C5 /* ContentView.swift */,
+				F522EB30296E788F00C3AD6D /* PlayerListView.swift */,
+				F522EB32296E7E1B00C3AD6D /* TeamListView.swift */,
+				F568335A2970D31B0017725A /* GameDetailsView.swift */,
+				F50D0AD729710A31003035A4 /* RoundCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F5308966296D2F94002D29C5 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +124,10 @@
 		F5308971296D2F94002D29C5 /* GameOn */ = {
 			isa = PBXGroup;
 			children = (
+				F522EB2F296E785700C3AD6D /* Views */,
+				F5D845F9296E322600E7E47A /* Models */,
 				F5308972296D2F94002D29C5 /* GameOnApp.swift */,
-				F5308974296D2F94002D29C5 /* ContentView.swift */,
+				F5C2D893296F8264009E9D10 /* Utilities.swift */,
 				F5308976296D2F97002D29C5 /* Assets.xcassets */,
 				F5308978296D2F97002D29C5 /* Preview Content */,
 			);
@@ -125,6 +157,17 @@
 				F530898F296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift */,
 			);
 			path = GameOnUITests;
+			sourceTree = "<group>";
+		};
+		F5D845F9296E322600E7E47A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5D845FA296E324600E7E47A /* Players.swift */,
+				F5D845FC296E335600E7E47A /* Teams.swift */,
+				F522EB2B296E671A00C3AD6D /* GameViewModel.swift */,
+				F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D845FD296E335600E7E47A /* Teams.swift in Sources */,
+				F568335B2970D31B0017725A /* GameDetailsView.swift in Sources */,
+				F5D845FB296E324600E7E47A /* Players.swift in Sources */,
+				F522EB2E296E67C500C3AD6D /* GamesAndResults.swift in Sources */,
+				F50D0AD829710A31003035A4 /* RoundCellView.swift in Sources */,
+				F522EB33296E7E1B00C3AD6D /* TeamListView.swift in Sources */,
+				F522EB31296E788F00C3AD6D /* PlayerListView.swift in Sources */,
 				F5308975296D2F94002D29C5 /* ContentView.swift in Sources */,
+				F5C2D894296F8264009E9D10 /* Utilities.swift in Sources */,
+				F522EB2C296E671A00C3AD6D /* GameViewModel.swift in Sources */,
 				F5308973296D2F94002D29C5 /* GameOnApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,9 +466,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameOn/Preview Content\"";
+				DEVELOPMENT_TEAM = U22STRVZ84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,6 +478,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,6 +486,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingzhang.entertainment.GameOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,9 +498,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameOn/Preview Content\"";
+				DEVELOPMENT_TEAM = U22STRVZ84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -452,6 +510,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +518,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingzhang.entertainment.GameOn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
