@@ -14,19 +14,19 @@ struct Round: Identifiable {
     var players: [Player]
     var teams: [Team]
     var goals: [Int] = []
-    var scoreInThisRound: [Int] = []
+    var scoreInThisRound: [GameResult] = []
 
     mutating func setGoals(host: Int, away: Int) {
         goals = [host, away]
     }
 
-    mutating func setScore(goals: [Int]) {
+    mutating func setResult(goals: [Int]) {
         if goals[0] > goals[1] {
-            scoreInThisRound = [3, 3, 0, 0]
+            scoreInThisRound = [.win, .win, .lose, .lose]
         } else if goals[0] == goals[1] {
-            scoreInThisRound = [1, 1, 1, 1]
+            scoreInThisRound = [.draw, .draw, .draw, .draw]
         } else {
-            scoreInThisRound = [0, 0, 3, 3]
+            scoreInThisRound = [.lose, .lose, .win, .win]
         }
     }
 }
@@ -40,7 +40,7 @@ struct Game {
         players: [Player],
         teams: [Team],
         rounds: [Round] = [],
-        scoresSoFar: [Int] = [],
+        scoresSoFar: [Int] = [0, 0, 0, 0],
         winnersSoFar: [Player] = []
     ) {
         self.players = players
@@ -94,11 +94,61 @@ struct Game {
     }
 
     mutating func deleteRound(indexSet: IndexSet) {
+        for index in indexSet {
+            if rounds[index].scoreInThisRound != [] {
+                deleteRoundRecord(index: index)
+            }
+        }
+
         rounds.remove(atOffsets: indexSet)
     }
 
     mutating func recordRound(index: Int, homeScore: Int, awayScore: Int) {
+        if rounds[index].scoreInThisRound != [] {
+            deleteRoundRecord(index: index)
+        }
+
         rounds[index].setGoals(host: homeScore, away: awayScore)
-        rounds[index].setScore(goals: [homeScore, homeScore])
+        rounds[index].setResult(goals: [homeScore, awayScore])
+
+        addRoundRecord(index: index)
+    }
+
+    mutating func addRoundRecord(index: Int) {
+        for i in 0 ... 3 {
+            players[i].recordResult(result: rounds[index].scoreInThisRound[i])
+            for j in 0 ... 3 {
+                if players[j].id == rounds[index].players[i].id {
+                    increaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
+                }
+            }
+        }
+        teams[0].recordResult(result: rounds[index].scoreInThisRound[0])
+        teams[1].recordResult(result: rounds[index].scoreInThisRound[2])
+    }
+
+    mutating func deleteRoundRecord(index: Int) {
+        for i in 0 ... 3 {
+            players[i].cancelResult(result: rounds[index].scoreInThisRound[i])
+            for j in 0 ... 3 {
+                if players[j].id == rounds[index].players[i].id {
+                    decreaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
+                }
+            }
+        }
+        teams[0].cancelResult(result: rounds[index].scoreInThisRound[0])
+        teams[1].cancelResult(result: rounds[index].scoreInThisRound[2])
+    }
+
+    mutating func increaseScoreSoFar(index: Int, score: Int) {
+        scoresSoFar[index] += score
+    }
+
+    mutating func decreaseScoreSoFar(index: Int, score: Int) {
+        scoresSoFar[index] -= score
+    }
+
+    func finishGame() {
+        // Accumulate the game record to App
     }
 }

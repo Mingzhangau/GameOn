@@ -72,18 +72,17 @@ struct ContentView: View {
 
 private extension ContentView {
     func startNewGame() {
-        viewModel.playersInGame = viewModel.players.filter {
+        let playersInGame = viewModel.players.filter {
             $0.isInOptions
         }
-        viewModel.teamsInGame = viewModel.teams.filter {
+        let teamsInGame = viewModel.teams.filter {
             $0.isInOptions
         }
         viewModel.currentGame = Game(
-            players: viewModel.playersInGame,
-            teams: viewModel.teamsInGame
+            players: playersInGame,
+            teams: teamsInGame
         )
         viewModel.currentGame?.startNewRound()
-
     }
 }
 

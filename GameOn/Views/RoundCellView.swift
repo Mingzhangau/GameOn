@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RoundCellView: View {
     var viewModel: Round
+    @Binding
+    var game: Game?
     var roundIndex: Int
     @State
     var homeScore: String = ""
@@ -23,9 +25,18 @@ struct RoundCellView: View {
             VStack {
                 HStack {
                     ForEach(viewModel.players.indices, id: \.self) { index in
-                        Text(viewModel.players[index].name)
+                        VStack {
+                            Text(viewModel.players[index].name)
+
+                            if let scoreInThisRound = game?.rounds[roundIndex].scoreInThisRound {
+                                if scoreInThisRound != [] {
+                                    Text(scoreInThisRound[index].toString())
+                                }
+                            }
+                        }
                     }
                 }
+
                 HStack {
                     ForEach(viewModel.teams.indices, id: \.self) { index in
                         Text(viewModel.teams[index].name)
@@ -35,7 +46,16 @@ struct RoundCellView: View {
             .frame(minWidth: 300, idealWidth: 550)
             TextField("Home Score", text: $homeScore)
             TextField("Away Score", text: $awayScore)
-            Button(action: {}) {
+            Button(action: {
+                if homeScore != "", awayScore != "" {
+                    game?.recordRound(
+                        index: roundIndex,
+                        homeScore: Int(homeScore) ?? 0,
+                        awayScore: Int(awayScore) ?? 0
+                    )
+                }
+
+            }) {
                 Image(systemName: "plus.circle")
             }
         }

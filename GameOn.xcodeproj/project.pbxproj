@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F50D0AD829710A31003035A4 /* RoundCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D0AD729710A31003035A4 /* RoundCellView.swift */; };
+		F50D0ADA2972350E003035A4 /* GameRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D0AD92972350E003035A4 /* GameRecord.swift */; };
 		F522EB2C296E671A00C3AD6D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB2B296E671A00C3AD6D /* GameViewModel.swift */; };
 		F522EB2E296E67C500C3AD6D /* GamesAndResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */; };
 		F522EB31296E788F00C3AD6D /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522EB30296E788F00C3AD6D /* PlayerListView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		F50D0AD729710A31003035A4 /* RoundCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCellView.swift; sourceTree = "<group>"; };
+		F50D0AD92972350E003035A4 /* GameRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecord.swift; sourceTree = "<group>"; };
 		F522EB2B296E671A00C3AD6D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAndResults.swift; sourceTree = "<group>"; };
 		F522EB30296E788F00C3AD6D /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				F5D845FC296E335600E7E47A /* Teams.swift */,
 				F522EB2B296E671A00C3AD6D /* GameViewModel.swift */,
 				F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */,
+				F50D0AD92972350E003035A4 /* GameRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				F568335B2970D31B0017725A /* GameDetailsView.swift in Sources */,
 				F5D845FB296E324600E7E47A /* Players.swift in Sources */,
 				F522EB2E296E67C500C3AD6D /* GamesAndResults.swift in Sources */,
+				F50D0ADA2972350E003035A4 /* GameRecord.swift in Sources */,
 				F50D0AD829710A31003035A4 /* RoundCellView.swift in Sources */,
 				F522EB33296E7E1B00C3AD6D /* TeamListView.swift in Sources */,
 				F522EB31296E788F00C3AD6D /* PlayerListView.swift in Sources */,

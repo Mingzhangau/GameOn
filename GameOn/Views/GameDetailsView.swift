@@ -22,20 +22,22 @@ struct GameDetailsView: View {
                     Text("Scores so far")
                     HStack {
                         ForEach(viewModel.players.indices, id: \.self) { index in
-                            Text(viewModel.players[index].name + "    ")
-                        }
-                    }
+                            VStack {
+                                Text(viewModel.players[index].name + "    ")
 
-                    HStack {
-                        ForEach(viewModel.scoresSoFar.indices, id: \.self) { index in
-                            Text(String(viewModel.scoresSoFar[index]) + "    ")
+                                Text(String(viewModel.scoresSoFar[index]) + "")
+                            }
                         }
                     }
 
                     List {
                         ForEach(viewModel.rounds.indices, id: \.self) {
                             index in
-                            RoundCellView(viewModel: viewModel.rounds[index], roundIndex: index)
+                            RoundCellView(
+                                viewModel: viewModel.rounds[index],
+                                game: $viewModel,
+                                roundIndex: index
+                            )
                         }
                         .onDelete {
                             indexSet in

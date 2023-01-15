@@ -10,9 +10,6 @@ import Foundation
 struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
     // MARK: Lifecycle
 
-//    var historyScore: Int
-//    var historyGamePlayed: Int
-
     public init(stringLiteral value: StringLiteralType) {
         id = value
         isInOptions = true
@@ -27,35 +24,25 @@ struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
 
     let id: String
     var isInOptions: Bool
+    var gameRecord: GameRecord = .init()
 
     var name: String {
         id
     }
-}
 
-// enum Players : Player {
-//
-//    typealias RawValue = Player
-//
-//    case Ming, Joel, James, Chang
-//
-//    init?(rawValue: Player) {
-//        switch rawValue.id {
-//        case "Ming": self = .Ming
-//        case "Joel": self = .Joel
-//        case "James": self = .James
-//        case "Chang": self = .Chang
-//        default:
-//            return nil
-//        }
-//    }
-//
-//    var rawValue: Player {
-//        switch self {
-//        case .Ming : return Player(stringLiteral: "Ming")
-//        case .Joel : return Player(stringLiteral: "Joel")
-//        case .James : return Player(stringLiteral: "James")
-//        case .Chang : return Player(stringLiteral: "Chang")
-//        }
-//    }
-// }
+    mutating func recordResult(result: GameResult) {
+        switch result {
+        case .win: gameRecord.recordWin()
+        case .draw: gameRecord.recordDraw()
+        case .lose: gameRecord.recordLose()
+        }
+    }
+
+    mutating func cancelResult(result: GameResult) {
+        switch result {
+        case .win: gameRecord.cancelWin()
+        case .draw: gameRecord.cancelDraw()
+        case .lose: gameRecord.cancelLose()
+        }
+    }
+}

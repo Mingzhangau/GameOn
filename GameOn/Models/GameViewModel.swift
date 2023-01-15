@@ -10,10 +10,6 @@ import Foundation
 extension ContentView {
     class ViewModel: ObservableObject {
         @Published
-        var playersInGame: [Player] = []
-        @Published
-        var teamsInGame: [Team] = []
-        @Published
         var currentGame: Game? = nil
 
         @Published
@@ -29,13 +25,13 @@ extension ContentView {
             Team(id: "Portugal", isInOptions: true),
             Team(id: "Australia", isInOptions: true),
             Team(id: "Japan", isInOptions: true),
-            Team(id: "Senegal", isInOptions: true),
+//            Team(id: "Senegal", isInOptions: true),
             Team(id: "Spain", isInOptions: true),
             Team(id: "Bayern Munich", isInOptions: true),
-            Team(id: "Real Madrid", isInOptions: true),
+//            Team(id: "Real Madrid", isInOptions: true),
             Team(id: "Barcelona", isInOptions: true),
             Team(id: "Manchester United", isInOptions: true),
-            Team(id: "Manchester City", isInOptions: true),
+//            Team(id: "Manchester City", isInOptions: true),
         ]
 
         @Published
