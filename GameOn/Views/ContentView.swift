@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 // MARK: - ContentView
 
@@ -26,23 +27,33 @@ struct ContentView: View {
         UINavigationBar.appearance().tintColor = UIColor(.accentColor)
 
         self.viewModel = viewModel
-    }
+        }
 
     // MARK: Internal
 
     @ObservedObject
     var viewModel: ViewModel
+    
+    @EnvironmentObject var manager: DataManager
+    @Environment(\.managedObjectContext) private var viewContext
+
 
     var body: some View {
         NavigationView {
+            
+
+            
             ScrollView {
                 Image(systemName: "globe")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-
-                HStack {
-                    PlayerListView(viewModel: $viewModel.players)
-                    TeamListView(viewModel: $viewModel.teams)
+                
+                VStack {
+                    PlayerDTOListView()
+                    HStack {
+                        PlayerListView(viewModel: $viewModel.players)
+                        TeamListView(viewModel: $viewModel.teams)
+                    }
                 }
 
                 Button(action: {
@@ -91,3 +102,19 @@ private extension ContentView {
 //        ContentView()
 //    }
 // }
+
+extension View {
+    // MARK: - Present UIAlertController with a text field
+    func presentTextInputAlert(title: String, message: String, completion: @escaping (_ text: String) -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField()
+        let submitAction = UIAlertAction(title: "Save", style: .default) { _ in
+            if let text = alert.textFields?.first?.text, !text.isEmpty {
+                completion(text)
+            }
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(submitAction)
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+    }
+}

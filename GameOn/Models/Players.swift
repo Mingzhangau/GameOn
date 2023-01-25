@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
     // MARK: Lifecycle
@@ -45,4 +46,9 @@ struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
         case .lose: gameRecord.cancelLose()
         }
     }
+}
+
+public class PlayerDTO : NSManagedObject, Identifiable {
+    @NSManaged public var id: String
+    @NSManaged public var isInOptions: Bool
 }
