@@ -48,13 +48,13 @@ struct ContentView: View {
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
                 
-                VStack {
-                    PlayerDTOListView()
+//                VStack {
+//                    PlayerDTOListView()
                     HStack {
                         PlayerListView(viewModel: $viewModel.players)
                         TeamListView(viewModel: $viewModel.teams)
                     }
-                }
+//                }
 
                 Button(action: {
                     startNewGame()

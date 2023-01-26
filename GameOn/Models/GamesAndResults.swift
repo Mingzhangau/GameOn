@@ -60,15 +60,22 @@ struct Game {
 
     var currentRound: Round? { rounds.last }
     var previoursRound: Round? {
-        rounds.count > 1 ? rounds.last : nil
+        rounds.count > 0 ? rounds.last : nil
     }
 
     func choosePlayersInRound(numberOfPlayers: Int) -> [Player] {
         var option = Array(players.shuffled().prefix(numberOfPlayers))
+        var team2Index = numberOfPlayers / 2
 
-        while option == previoursRound?.players {
-            option = Array(players.shuffled().prefix(numberOfPlayers))
+        if let previoursRound = previoursRound {
+            let firstIndex = option.firstIndex { $0.id == previoursRound.players[0].id }
+            option.swapAt(0, firstIndex ?? 0)
+
+            let secondIndex = option.firstIndex { $0.id == previoursRound.players[1].id
+            }
+            option.swapAt(team2Index, secondIndex ?? team2Index)
         }
+
         return option
     }
 
@@ -76,7 +83,10 @@ struct Game {
         var option = Array(teams.shuffled().prefix(2))
 
         if let previoursRound = previoursRound {
-            while option == previoursRound.teams {
+            while
+                previoursRound.teams.contains(option[0]) || previoursRound.teams
+                    .contains(option[1])
+            {
                 option = Array(teams.shuffled().prefix(2))
             }
         }
