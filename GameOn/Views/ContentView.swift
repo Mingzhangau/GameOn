@@ -48,13 +48,15 @@ struct ContentView: View {
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
                 
-//                VStack {
+//                HStack {
 //                    PlayerDTOListView()
+//                    TeamDTOListView()
+//                }
+                    
                     HStack {
                         PlayerListView(viewModel: $viewModel.players)
                         TeamListView(viewModel: $viewModel.teams)
                     }
-//                }
 
                 Button(action: {
                     startNewGame()
@@ -63,6 +65,18 @@ struct ContentView: View {
                 }) {
                     Text("Game on")
                 }
+                .frame(width: 200, height: 100)
+                .font(.largeTitle)
+                .background(
+                  ZStack {
+                      RoundedRectangle(cornerRadius: 21.0).fill( LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom))
+                  }
+                )
+                .overlay(
+                  RoundedRectangle(cornerRadius: 21.0)
+                    .strokeBorder(Color.red, lineWidth: 2.0)
+                )
+
             }
 
             .navigationTitle("Let's game")

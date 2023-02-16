@@ -22,6 +22,8 @@
 		F5308984296D2F97002D29C5 /* GameOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5308983296D2F97002D29C5 /* GameOnTests.swift */; };
 		F530898E296D2F97002D29C5 /* GameOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530898D296D2F97002D29C5 /* GameOnUITests.swift */; };
 		F5308990296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530898F296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift */; };
+		F54C73402987413900E2D26E /* TeamDTOListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C733F2987413900E2D26E /* TeamDTOListView.swift */; };
+		F54C73422987440100E2D26E /* RoundDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54C73412987440100E2D26E /* RoundDTO.swift */; };
 		F568335B2970D31B0017725A /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F568335A2970D31B0017725A /* GameDetailsView.swift */; };
 		F5C2D894296F8264009E9D10 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D893296F8264009E9D10 /* Utilities.swift */; };
 		F5D845FB296E324600E7E47A /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D845FA296E324600E7E47A /* Players.swift */; };
@@ -65,6 +67,8 @@
 		F5308989296D2F97002D29C5 /* GameOnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F530898D296D2F97002D29C5 /* GameOnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnUITests.swift; sourceTree = "<group>"; };
 		F530898F296D2F97002D29C5 /* GameOnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOnUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F54C733F2987413900E2D26E /* TeamDTOListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDTOListView.swift; sourceTree = "<group>"; };
+		F54C73412987440100E2D26E /* RoundDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDTO.swift; sourceTree = "<group>"; };
 		F568335A2970D31B0017725A /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
 		F5C2D893296F8264009E9D10 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F5D845FA296E324600E7E47A /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				F568335A2970D31B0017725A /* GameDetailsView.swift */,
 				F50D0AD729710A31003035A4 /* RoundCellView.swift */,
 				F5FA95D2297A5A6900C12B21 /* PlayerDTOListView.swift */,
+				F54C733F2987413900E2D26E /* TeamDTOListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				F522EB2B296E671A00C3AD6D /* GameViewModel.swift */,
 				F522EB2D296E67C500C3AD6D /* GamesAndResults.swift */,
 				F50D0AD92972350E003035A4 /* GameRecord.swift */,
+				F54C73412987440100E2D26E /* RoundDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 				F568335B2970D31B0017725A /* GameDetailsView.swift in Sources */,
 				F5D845FB296E324600E7E47A /* Players.swift in Sources */,
 				F52EE0C6297A210E003FBAD0 /* DataManager.swift in Sources */,
+				F54C73402987413900E2D26E /* TeamDTOListView.swift in Sources */,
 				F522EB2E296E67C500C3AD6D /* GamesAndResults.swift in Sources */,
 				F52EE0C4297A1F05003FBAD0 /* GameOnModel.xcdatamodeld in Sources */,
 				F50D0ADA2972350E003035A4 /* GameRecord.swift in Sources */,
 				F50D0AD829710A31003035A4 /* RoundCellView.swift in Sources */,
+				F54C73422987440100E2D26E /* RoundDTO.swift in Sources */,
 				F522EB33296E7E1B00C3AD6D /* TeamListView.swift in Sources */,
 				F522EB31296E788F00C3AD6D /* PlayerListView.swift in Sources */,
 				F5308975296D2F94002D29C5 /* ContentView.swift in Sources */,
@@ -494,7 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameOn/Preview Content\"";
-				DEVELOPMENT_TEAM = U22STRVZ84;
+				DEVELOPMENT_TEAM = C82PS8T23F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -526,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameOn/Preview Content\"";
-				DEVELOPMENT_TEAM = U22STRVZ84;
+				DEVELOPMENT_TEAM = C82PS8T23F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

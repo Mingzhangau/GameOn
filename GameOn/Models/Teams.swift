@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Team: Identifiable, Equatable {
     var id: String
@@ -30,3 +31,9 @@ struct Team: Identifiable, Equatable {
         }
     }
 }
+
+public class TeamDTO : NSManagedObject, Identifiable {
+    @NSManaged public var id: String
+    @NSManaged public var isInOptions: Bool
+}
+

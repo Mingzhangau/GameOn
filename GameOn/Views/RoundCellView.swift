@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct RoundCellView: View {
     var viewModel: Round
@@ -45,7 +46,21 @@ struct RoundCellView: View {
             }
             .frame(minWidth: 300, idealWidth: 550)
             TextField("Home Score", text: $homeScore)
+                .keyboardType(.numberPad)
+                .onReceive(Just(homeScore)) { newValue in
+                    let filtered = newValue.filter { "0123456789".contains($0) }
+                    if filtered != newValue {
+                        self.homeScore = filtered
+                    }
+                }
             TextField("Away Score", text: $awayScore)
+                .keyboardType(.numberPad)
+                .onReceive(Just(awayScore)) { newValue in
+                    let filtered = newValue.filter { "0123456789".contains($0) }
+                    if filtered != newValue {
+                        self.awayScore = filtered
+                    }
+                }
             Button(action: {
                 if homeScore != "", awayScore != "" {
                     game?.recordRound(

@@ -1,32 +1,32 @@
 //
-//  PlayerDTOListView.swift
+//  TeamDTOListView.swift
 //  GameOn
 //
-//  Created by Ming Zhang on 20/1/2023.
+//  Created by Ming Zhang on 30/1/2023.
 //
 
 import SwiftUI
 import CoreData
 
-struct PlayerDTOListView: View {
+struct TeamDTOListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(entity: PlayerDTO.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) private var players: FetchedResults<PlayerDTO>
+    @FetchRequest(entity: TeamDTO.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) private var teams: FetchedResults<TeamDTO>
     
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Choose Players:").font(.headline)
+            Text("Choose Teams:").font(.headline)
 
-            ForEach(players) { player in
+            ForEach(teams) { team in
                 HStack {
                     Label(
-                        player.id,
-                        systemImage: "circle\(player.isInOptions ? ".fill" : "")"
+                        team.id,
+                        systemImage: "circle\(team.isInOptions ? ".fill" : "")"
                     )
                     .frame(width: 300, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        player.isInOptions = !player.isInOptions
+                        team.isInOptions = !team.isInOptions
                         try? viewContext.save()
                     }
                     Label(
@@ -36,7 +36,7 @@ struct PlayerDTOListView: View {
                     .frame(width: 50, alignment: .trailing)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        deletePlayer(player: player)
+                        deleteTeam(team: team)
                     }
                 }
 
@@ -44,10 +44,10 @@ struct PlayerDTOListView: View {
             }
             
             Button(action: {
-                addPlayer()
+                addTeam()
 
             }) {
-                Text("Add Player")
+                Text("Add Team")
             }
 
         }
@@ -56,10 +56,10 @@ struct PlayerDTOListView: View {
     }
 }
 
-extension PlayerDTOListView {
-    private func deletePlayers(indexSet: IndexSet) {
+extension TeamDTOListView {
+    private func deleteTeams(indexSet: IndexSet) {
         for index in indexSet {
-            viewContext.delete(players[index])
+            viewContext.delete(teams[index])
         }
         do {
             try viewContext.save()
@@ -68,8 +68,8 @@ extension PlayerDTOListView {
         }
     }
     
-    private func deletePlayer(player: PlayerDTO) {
-        viewContext.delete(player)
+    private func deleteTeam(team: TeamDTO) {
+        viewContext.delete(team)
         do {
             try viewContext.save()
         } catch {
@@ -78,19 +78,19 @@ extension PlayerDTOListView {
     }
     
     /// Add a new item
-    private func addPlayer() {
-        presentTextInputAlert(title: "Add Player", message: "Enter player name") { name in
+    private func addTeam() {
+        presentTextInputAlert(title: "Add Team", message: "Enter team name") { name in
             ///-> remove this line manager.todoItems.append(TodoItem(task: name))
-            let newPlayer = PlayerDTO(context: viewContext)
-            newPlayer.id = name
-            newPlayer.isInOptions = true
+            let newTeam = TeamDTO(context: viewContext)
+            newTeam.id = name
+            newTeam.isInOptions = true
             try? viewContext.save()
         }
     }
 }
 
-// struct PlayerDTOListView_Previews: PreviewProvider {
+// struct TeamDTOListView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PlayerDTOListView()
+//        TeamDTOListView()
 //    }
 // }

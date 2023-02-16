@@ -48,6 +48,17 @@ struct GameDetailsView: View {
                     Button("New round") {
                         startNewRound()
                     }
+                    .frame(width: 200, height: 100)
+                    .font(.largeTitle)
+                    .background(
+                      ZStack {
+                          RoundedRectangle(cornerRadius: 21.0).fill( LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom))
+                      }
+                    )
+                    .overlay(
+                      RoundedRectangle(cornerRadius: 21.0)
+                        .strokeBorder(Color.red, lineWidth: 2.0)
+                    )
                 }
 
                 .navigationBarItems(leading: Button(action: {
