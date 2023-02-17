@@ -15,6 +15,12 @@ struct PlayerDTOListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Button(action: {
+                preSetPlayers()
+
+            }) {
+                Text("Preset Players")
+            }
             Text("Choose Players:").font(.headline)
 
             ForEach(players) { player in
@@ -80,12 +86,25 @@ extension PlayerDTOListView {
     /// Add a new item
     private func addPlayer() {
         presentTextInputAlert(title: "Add Player", message: "Enter player name") { name in
-            ///-> remove this line manager.todoItems.append(TodoItem(task: name))
+            DTOAddPlayer(name: name)        }
+    }
+    
+    private func DTOAddPlayer(name: String) {
+        if !players.map(\.id).contains(name) {
             let newPlayer = PlayerDTO(context: viewContext)
             newPlayer.id = name
             newPlayer.isInOptions = true
             try? viewContext.save()
         }
+
+    }
+    
+    private func preSetPlayers() {
+            let players = ["Ming", "Joel", "James", "Chang"]
+        for player in players {
+            DTOAddPlayer(name: player)
+        }
+ 
     }
 }
 

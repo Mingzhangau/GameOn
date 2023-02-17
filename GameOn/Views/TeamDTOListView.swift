@@ -15,6 +15,13 @@ struct TeamDTOListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Button(action: {
+                preSetTeams()
+
+            }) {
+                Text("Preset Teams")
+            }
+            
             Text("Choose Teams:").font(.headline)
 
             ForEach(teams) { team in
@@ -80,11 +87,23 @@ extension TeamDTOListView {
     /// Add a new item
     private func addTeam() {
         presentTextInputAlert(title: "Add Team", message: "Enter team name") { name in
-            ///-> remove this line manager.todoItems.append(TodoItem(task: name))
+            DTOAddTeam(name: name)
+        }
+    }
+    
+    private func DTOAddTeam(name: String) {
+        if !teams.map(\.id).contains(name) {
             let newTeam = TeamDTO(context: viewContext)
             newTeam.id = name
             newTeam.isInOptions = true
             try? viewContext.save()
+        }
+    }
+    
+    private func preSetTeams() {
+            let teams = ["Brasil", "Argentina", "Germany", "France", "Netherlands", "Croatia", "England", "Morocco", "Portugal", "Australia", "Japan", "Spain", "Bayern Munich", "Barcelona", "Manchester United"]
+        for team in teams {
+            DTOAddTeam(name: team)
         }
     }
 }
@@ -94,3 +113,4 @@ extension TeamDTOListView {
 //        TeamDTOListView()
 //    }
 // }
+

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ContentView {
+extension SettingsView {
     class ViewModel: ObservableObject {
         @Published
         var currentGame: Game? = nil

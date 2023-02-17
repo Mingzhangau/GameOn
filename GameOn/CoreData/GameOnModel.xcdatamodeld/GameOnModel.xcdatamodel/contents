@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G419" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GameDTO" representedClassName=".GameDTO" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 16" minValueString="1" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="rounds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundDTO" inverseName="roundToGame" inverseEntity="RoundDTO"/>
+    </entity>
     <entity name="PlayerDTO" representedClassName=".PlayerDTO" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="isInOptions" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="awayPlayerToRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundDTO" inverseName="awayPlayers" inverseEntity="RoundDTO"/>
+        <relationship name="homePlayerToRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundDTO" inverseName="homePlayers" inverseEntity="RoundDTO"/>
     </entity>
     <entity name="RoundDTO" representedClassName=".RoundDTO" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerDTO"/>
-        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TeamDTO"/>
+        <attribute name="awayScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="homeScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="awayPlayers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerDTO" inverseName="awayPlayerToRound" inverseEntity="PlayerDTO"/>
+        <relationship name="awayTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TeamDTO" inverseName="awayTeamToRound" inverseEntity="TeamDTO"/>
+        <relationship name="homePlayers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerDTO" inverseName="homePlayerToRound" inverseEntity="PlayerDTO"/>
+        <relationship name="homeTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TeamDTO" inverseName="homeTeamToRound" inverseEntity="TeamDTO"/>
+        <relationship name="roundToGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameDTO" inverseName="rounds" inverseEntity="GameDTO"/>
     </entity>
     <entity name="TeamDTO" representedClassName=".TeamDTO" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="isInOptions" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="awayTeamToRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundDTO" inverseName="awayTeam" inverseEntity="RoundDTO"/>
+        <relationship name="homeTeamToRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundDTO" inverseName="homeTeam" inverseEntity="RoundDTO"/>
     </entity>
 </model>

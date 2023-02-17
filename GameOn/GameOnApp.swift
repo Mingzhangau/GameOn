@@ -13,7 +13,7 @@ struct GameOnApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentView.ViewModel())
+            ContentView()
                 .environmentObject(manager)
                 .environment(\.managedObjectContext, manager.container.viewContext)
         }

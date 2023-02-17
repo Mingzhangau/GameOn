@@ -47,8 +47,3 @@ struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
         }
     }
 }
-
-public class PlayerDTO : NSManagedObject, Identifiable {
-    @NSManaged public var id: String
-    @NSManaged public var isInOptions: Bool
-}
