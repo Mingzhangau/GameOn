@@ -101,7 +101,26 @@ extension TeamDTOListView {
     }
     
     private func preSetTeams() {
-            let teams = ["Brasil", "Argentina", "Germany", "France", "Netherlands", "Croatia", "England", "Morocco", "Portugal", "Australia", "Japan", "Spain", "Bayern Munich", "Barcelona", "Manchester United"]
+            let teams = ["Manchester Nunited", "Manchester City", "Liverpool",
+                         "Arsenal",
+                         "HotSpur",
+                         "Chelsea",
+                         "Paris Saint-Germain",
+                         "AS Monaco",
+                         "Inter Milano",
+                         "AC Milan",
+                         "Juventus (Piemonte BN)",
+                         "Lazio",
+                         "Roma",
+                         "Napoli",
+                         "Real Madrid",
+                         "Barcelona",
+                         "Madrid Rosas",
+                         "Bayern Munich",
+                         "Atletico Mineiro (Brasil)",
+                         "Flamengo",
+                         "River Plate"
+            ]
         for team in teams {
             DTOAddTeam(name: team)
         }
