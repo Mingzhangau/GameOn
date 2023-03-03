@@ -55,8 +55,8 @@ struct GameRecord: Equatable {
     }
 
     mutating func recordLose() {
-        gamePlayed -= 1
-        historyLose -= 1
+        gamePlayed += 1
+        historyLose += 1
     }
 
     mutating func cancelWin() {

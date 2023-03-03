@@ -24,6 +24,7 @@ struct GameDetailsView: View {
                         ForEach(viewModel.players.indices, id: \.self) { index in
                             VStack {
                                 Text(viewModel.players[index].name + "    ")
+                                Text(String(viewModel.players[index].gameRecord.gamePlayed) + "    ")
 
                                 Text(String(viewModel.scoresSoFar[index]) + "")
                             }

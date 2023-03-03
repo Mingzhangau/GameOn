@@ -180,10 +180,11 @@ struct Game {
 
     mutating func addRoundRecord(index: Int) {
         for i in 0 ... players.count - 1 {
-            players[i].recordResult(result: rounds[index].scoreInThisRound[i])
+            
             for j in 0 ... players.count - 1 {
                 let roundPlayerNumber = min(rounds[index].players.count-1, i)
                 if players[j].id == rounds[index].players[roundPlayerNumber].id {
+                    players[j].recordResult(result: rounds[index].scoreInThisRound[i])
                     increaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
                 }
             }
@@ -194,10 +195,11 @@ struct Game {
 
     mutating func deleteRoundRecord(index: Int) {
         for i in 0 ... players.count - 1 {
-            players[i].cancelResult(result: rounds[index].scoreInThisRound[i])
+            
             for j in 0 ... players.count - 1 {
                 let roundPlayerNumber = min(rounds[index].players.count-1, i)
                 if players[j].id == rounds[index].players[roundPlayerNumber].id {
+                    players[j].cancelResult(result: rounds[index].scoreInThisRound[i])
                     decreaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
                 }
             }
