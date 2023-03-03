@@ -13,6 +13,7 @@ enum GameResult {
     case win
     case draw
     case lose
+    case abcent
 
     // MARK: Internal
 
@@ -21,6 +22,7 @@ enum GameResult {
         case .win: return "3"
         case .draw: return "1"
         case .lose: return "0"
+        case .abcent: return "0"
         }
     }
 
@@ -29,6 +31,7 @@ enum GameResult {
         case .win: return 3
         case .draw: return 1
         case .lose: return 0
+        case .abcent: return 0
         }
     }
 }

@@ -22,27 +22,54 @@ struct Round: Identifiable {
 
     mutating func setResult(goals: [Int]) {
         var result: [GameResult] = []
-        let seperateIndex = players.count % 2 == 0 ? players.count / 2 - 1 : players.count / 2
+        var teamBStartIndex = 2
+        var teamBEndIndex = 3
+        switch players.count {
+        case 2:
+            teamBStartIndex = 1
+            teamBEndIndex = 1
+        case 3:
+            teamBStartIndex = 2
+            teamBEndIndex = 2
+        case 4:
+            teamBStartIndex = 2
+            teamBEndIndex = 3
+        case 5:
+            teamBStartIndex = 2
+            teamBEndIndex = 3
+        default:
+            teamBStartIndex = 2
+            teamBEndIndex = 3
+        }
         if goals[0] > goals[1] {
-            for _ in 0 ... seperateIndex {
+            for _ in 0 ... teamBStartIndex-1 {
                 result.append(.win)
             }
-            for _ in seperateIndex + 1 ... players.count - 1 {
+            for _ in teamBStartIndex ... teamBEndIndex {
                 result.append(.lose)
+            }
+            
+            for _ in min(teamBEndIndex + 1, players.count)...players.count {
+                result.append(.abcent)
             }
 
         } else if goals[0] == goals[1] {
-            for _ in 0 ... players.count - 1 {
+            for _ in 0 ... teamBEndIndex{
                 result.append(.draw)
             }
+            for _ in min(teamBEndIndex + 1, players.count) ... players.count {
+                result.append(.abcent)
+            }
         } else {
-            for _ in 0 ... seperateIndex {
+            for _ in 0 ... teamBStartIndex-1 {
                 result.append(.lose)
             }
-            for _ in seperateIndex + 1 ... players.count - 1 {
-                result.append(
-                    .win
-                )
+            for _ in teamBStartIndex ... teamBEndIndex {
+                result.append(.win)
+            }
+            
+            for _ in min(teamBEndIndex + 1, players.count)...players.count {
+                result.append(.abcent)
             }
         }
         scoreInThisRound = result
@@ -92,7 +119,16 @@ struct Game {
             let secondIndex = option.firstIndex { $0.id == previoursRound.players[1].id
             }
             option.swapAt(team2Index, secondIndex ?? team2Index)
+            
+            for player in players {
+                if !previoursRound.players.contains(player) {
+                    if !option.contains(player) {
+                        option[0] = player
+                    }
+                }
+            }
         }
+        
 
         return option
     }
@@ -115,7 +151,7 @@ struct Game {
         rounds.append(
             Round(
                 id: rounds.count,
-                players: choosePlayersInRound(numberOfPlayers: players.count),
+                players: choosePlayersInRound(numberOfPlayers: min(players.count, 4)),
                 teams: chooseTeamsInRound()
             )
         )
@@ -146,26 +182,28 @@ struct Game {
         for i in 0 ... players.count - 1 {
             players[i].recordResult(result: rounds[index].scoreInThisRound[i])
             for j in 0 ... players.count - 1 {
-                if players[j].id == rounds[index].players[i].id {
+                let roundPlayerNumber = min(rounds[index].players.count-1, i)
+                if players[j].id == rounds[index].players[roundPlayerNumber].id {
                     increaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
                 }
             }
         }
         teams[0].recordResult(result: rounds[index].scoreInThisRound[0])
-        teams[1].recordResult(result: rounds[index].scoreInThisRound[players.count - 1])
+        teams[1].recordResult(result: rounds[index].scoreInThisRound[min(players.count,4) - 1])
     }
 
     mutating func deleteRoundRecord(index: Int) {
         for i in 0 ... players.count - 1 {
             players[i].cancelResult(result: rounds[index].scoreInThisRound[i])
             for j in 0 ... players.count - 1 {
-                if players[j].id == rounds[index].players[i].id {
+                let roundPlayerNumber = min(rounds[index].players.count-1, i)
+                if players[j].id == rounds[index].players[roundPlayerNumber].id {
                     decreaseScoreSoFar(index: j, score: rounds[index].scoreInThisRound[i].toInt())
                 }
             }
         }
         teams[0].cancelResult(result: rounds[index].scoreInThisRound[0])
-        teams[1].cancelResult(result: rounds[index].scoreInThisRound[players.count - 1])
+        teams[1].cancelResult(result: rounds[index].scoreInThisRound[min(players.count,4) - 1])
     }
 
     mutating func increaseScoreSoFar(index: Int, score: Int) {

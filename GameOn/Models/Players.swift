@@ -30,12 +30,17 @@ struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
     var name: String {
         id
     }
+    
+    static func ==(left: Player, right: Player) -> Bool {
+        return left.id == right.id
+    }
 
     mutating func recordResult(result: GameResult) {
         switch result {
         case .win: gameRecord.recordWin()
         case .draw: gameRecord.recordDraw()
         case .lose: gameRecord.recordLose()
+        case .abcent: break
         }
     }
 
@@ -44,6 +49,7 @@ struct Player: Equatable, ExpressibleByStringLiteral, Identifiable {
         case .win: gameRecord.cancelWin()
         case .draw: gameRecord.cancelDraw()
         case .lose: gameRecord.cancelLose()
+        case .abcent: break
         }
     }
 }

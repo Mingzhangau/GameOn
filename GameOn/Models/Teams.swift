@@ -14,12 +14,17 @@ struct Team: Identifiable, Equatable {
     var gameRecord: GameRecord = .init()
 
     var name: String { id }
+    
+    static func ==(left: Team, right: Team) -> Bool {
+        return left.id == right.id
+    }
 
     mutating func recordResult(result: GameResult) {
         switch result {
         case .win: gameRecord.recordWin()
         case .draw: gameRecord.recordDraw()
         case .lose: gameRecord.recordLose()
+        case .abcent: break
         }
     }
 
@@ -28,6 +33,7 @@ struct Team: Identifiable, Equatable {
         case .win: gameRecord.cancelWin()
         case .draw: gameRecord.cancelDraw()
         case .lose: gameRecord.cancelLose()
+        case .abcent: break
         }
     }
 }
